@@ -1,0 +1,14 @@
+version: '2'
+services:
+    b2c-app:
+        image: b2c
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:mysql://b2c-mysql:3306/b2c?useUnicode=true&characterEncoding=utf8&useSSL=false
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+        ports:
+            - 8080:8080
+    b2c-mysql:
+        extends:
+            file: mysql.yml
+            service: b2c-mysql
