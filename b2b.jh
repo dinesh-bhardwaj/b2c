@@ -1,0 +1,123 @@
+entity Student{
+    id Integer
+    name String
+    fatherName String
+    motherName String
+    dob Instant
+    schoolName String
+    admissionNumber String
+    rollNo Integer
+    email String
+    address String
+    mobile String
+    phone String
+    username String
+    password String
+    profile ProfileSelection
+    image String
+    gender GenderSelection
+    locality String
+    aadhar String
+    dateOfAdmission Instant
+    religion ReligionField
+    category CategoryField
+    previousClass PreviousClassField
+    previousYear Previousyear
+    disability Disability
+    bpl YESNOSELECTION
+    disadvantage NAYESNOSELECTION
+    transport NAYESNOSELECTION
+    escort NAYESNOSELECTION 
+    hostel NAYESNOSELECTION
+    training NAYESNOSELECTION
+    book NAYESNOSELECTION
+    uniformsets NAYESNOSELECTION
+    homeless NAYESNOSELECTION
+    freeEducation NAYESNOSELECTION
+    cwsn NAYESNOSELECTION
+    disease String
+    precautions String
+    active Instant
+    disease String
+    isDeleted Boolean
+  }
+  
+entity Attendance {
+  month MonthFields,
+  date Instant ,
+  attendance AttendanceField ,
+}
+
+entity Session{
+ name String
+ }
+
+enum MonthFields{
+  JAN,FEB,MAR,APR,MAY,JUN,JUL,AUG,SEP,OCT,NOV,DEC
+}
+enum AttendanceField{
+  PRESENT,ABSENT,LEAVE,LATE_FOR_SCHOOL,HOLIDAY,SUNDAY_HOLIDAY,WEEKLY_HOLIDAY,WEEKLY_OFF
+}
+enum ProfileSelection{
+   STUDENT,TEACHER,ADMIN
+}
+enum GenderSelection{
+   MALE,FEMALE
+}
+enum ReligionField{
+   HINDU, MUSLIM, SIKH, CHRISTIAN, BUDDHIST, JAIN, OTHERS 
+}
+enum CategoryField{
+   GENERAL, SC, ST, OBC
+}
+enum PreviousClassField{
+   PRE_PRIMARY, FIRST, SECOND, THIRD, FOUTH, FIFTH, SIXTH, SEVENTH, EIGHTH, NINETH, TENTH, ELEVENTH, TWELVETH, OTHERS
+}
+enum Previousyear{
+   SAME_SCHOOL, ANOTHER_SCHOOL, AANGANWADI_ECCE, NONE
+}
+enum Disability{
+   BLINDNESS, VISUAL_LOW_VISION
+}
+enum YESNOSELECTION{
+   YES, NO
+}
+enum NAYESNOSELECTION {
+   NA, YES, NO
+}
+
+entity SchoolClass{
+    name String
+}
+
+entity Datesheet{
+    exam String
+    image String
+    date Instant
+}
+
+entity Downloads {
+    exam String
+    image String
+    date Instant
+}
+
+entity Section{
+    name String
+}
+
+  
+relationship ManyToOne {
+  Attendance{student(name)} to Student
+  Student{SchoolClass(name)} to SchoolClass
+  Student{section(name)} to Section
+  Datesheet{SchoolClass(name)} to SchoolClass
+  Datesheet{section(name)} to Section
+  Downloads{SchoolClass(name)} to SchoolClass
+  Downloads{section(name)} to Section
+  Student{session(name)} to Session
+}
+
+relationship OneToOne{
+   Student{userId} to User
+}

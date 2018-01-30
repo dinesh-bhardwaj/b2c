@@ -1,0 +1,213 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "userId",
+            "otherEntityName": "user",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "student"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "schoolClass",
+            "otherEntityName": "schoolClass",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "section",
+            "otherEntityName": "section",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "session",
+            "otherEntityName": "session",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fatherName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "motherName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dob",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "schoolName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "admissionNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "rollNo",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "address",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "mobile",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "phone",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "username",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "password",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "profile",
+            "fieldType": "ProfileSelection",
+            "fieldValues": "STUDENT,TEACHER,ADMIN"
+        },
+        {
+            "fieldName": "image",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "gender",
+            "fieldType": "GenderSelection",
+            "fieldValues": "MALE,FEMALE"
+        },
+        {
+            "fieldName": "locality",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "aadhar",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateOfAdmission",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "religion",
+            "fieldType": "ReligionField",
+            "fieldValues": "HINDU,MUSLIM,SIKH,CHRISTIAN,BUDDHIST,JAIN,OTHERS"
+        },
+        {
+            "fieldName": "category",
+            "fieldType": "CategoryField",
+            "fieldValues": "GENERAL,SC,ST,OBC"
+        },
+        {
+            "fieldName": "previousClass",
+            "fieldType": "PreviousClassField",
+            "fieldValues": "PRE_PRIMARY,FIRST,SECOND,THIRD,FOUTH,FIFTH,SIXTH,SEVENTH,EIGHTH,NINETH,TENTH,ELEVENTH,TWELVETH,OTHERS"
+        },
+        {
+            "fieldName": "previousYear",
+            "fieldType": "Previousyear",
+            "fieldValues": "SAME_SCHOOL,ANOTHER_SCHOOL,AANGANWADI_ECCE,NONE"
+        },
+        {
+            "fieldName": "disability",
+            "fieldType": "Disability",
+            "fieldValues": "BLINDNESS,VISUAL_LOW_VISION"
+        },
+        {
+            "fieldName": "bpl",
+            "fieldType": "YESNOSELECTION",
+            "fieldValues": "YES,NO"
+        },
+        {
+            "fieldName": "disadvantage",
+            "fieldType": "NAYESNOSELECTION",
+            "fieldValues": "NA,YES,NO"
+        },
+        {
+            "fieldName": "transport",
+            "fieldType": "NAYESNOSELECTION",
+            "fieldValues": "NA,YES,NO"
+        },
+        {
+            "fieldName": "escort",
+            "fieldType": "NAYESNOSELECTION",
+            "fieldValues": "NA,YES,NO"
+        },
+        {
+            "fieldName": "hostel",
+            "fieldType": "NAYESNOSELECTION",
+            "fieldValues": "NA,YES,NO"
+        },
+        {
+            "fieldName": "training",
+            "fieldType": "NAYESNOSELECTION",
+            "fieldValues": "NA,YES,NO"
+        },
+        {
+            "fieldName": "book",
+            "fieldType": "NAYESNOSELECTION",
+            "fieldValues": "NA,YES,NO"
+        },
+        {
+            "fieldName": "uniformsets",
+            "fieldType": "NAYESNOSELECTION",
+            "fieldValues": "NA,YES,NO"
+        },
+        {
+            "fieldName": "homeless",
+            "fieldType": "NAYESNOSELECTION",
+            "fieldValues": "NA,YES,NO"
+        },
+        {
+            "fieldName": "freeEducation",
+            "fieldType": "NAYESNOSELECTION",
+            "fieldValues": "NA,YES,NO"
+        },
+        {
+            "fieldName": "cwsn",
+            "fieldType": "NAYESNOSELECTION",
+            "fieldValues": "NA,YES,NO"
+        },
+        {
+            "fieldName": "disease",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "precautions",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "active",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "isDeleted",
+            "fieldType": "Boolean"
+        }
+    ],
+    "changelogDate": "20180130131511",
+    "entityTableName": "student",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

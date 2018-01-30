@@ -1,0 +1,322 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myStudentLabel">Create or edit a Student</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!student.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="student.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                [(ngModel)]="student.name" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_fatherName">Father Name</label>
+            <input type="text" class="form-control" name="fatherName" id="field_fatherName"
+                [(ngModel)]="student.fatherName" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_motherName">Mother Name</label>
+            <input type="text" class="form-control" name="motherName" id="field_motherName"
+                [(ngModel)]="student.motherName" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_dob">Dob</label>
+            <div class="d-flex">
+                <input id="field_dob" type="datetime-local" class="form-control" name="dob" [(ngModel)]="student.dob"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_schoolName">School Name</label>
+            <input type="text" class="form-control" name="schoolName" id="field_schoolName"
+                [(ngModel)]="student.schoolName" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_admissionNumber">Admission Number</label>
+            <input type="text" class="form-control" name="admissionNumber" id="field_admissionNumber"
+                [(ngModel)]="student.admissionNumber" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_rollNo">Roll No</label>
+            <input type="number" class="form-control" name="rollNo" id="field_rollNo"
+                [(ngModel)]="student.rollNo" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_email">Email</label>
+            <input type="text" class="form-control" name="email" id="field_email"
+                [(ngModel)]="student.email" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_address">Address</label>
+            <input type="text" class="form-control" name="address" id="field_address"
+                [(ngModel)]="student.address" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_mobile">Mobile</label>
+            <input type="text" class="form-control" name="mobile" id="field_mobile"
+                [(ngModel)]="student.mobile" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_phone">Phone</label>
+            <input type="text" class="form-control" name="phone" id="field_phone"
+                [(ngModel)]="student.phone" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_username">Username</label>
+            <input type="text" class="form-control" name="username" id="field_username"
+                [(ngModel)]="student.username" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_password">Password</label>
+            <input type="text" class="form-control" name="password" id="field_password"
+                [(ngModel)]="student.password" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_profile">Profile</label>
+            <select class="form-control" name="profile" [(ngModel)]="student.profile" id="field_profile" >
+                <option value="STUDENT">STUDENT</option>
+                <option value="TEACHER">TEACHER</option>
+                <option value="ADMIN">ADMIN</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_image">Image</label>
+            <input type="text" class="form-control" name="image" id="field_image"
+                [(ngModel)]="student.image" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_gender">Gender</label>
+            <select class="form-control" name="gender" [(ngModel)]="student.gender" id="field_gender" >
+                <option value="MALE">MALE</option>
+                <option value="FEMALE">FEMALE</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_locality">Locality</label>
+            <input type="text" class="form-control" name="locality" id="field_locality"
+                [(ngModel)]="student.locality" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_aadhar">Aadhar</label>
+            <input type="text" class="form-control" name="aadhar" id="field_aadhar"
+                [(ngModel)]="student.aadhar" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_dateOfAdmission">Date Of Admission</label>
+            <div class="d-flex">
+                <input id="field_dateOfAdmission" type="datetime-local" class="form-control" name="dateOfAdmission" [(ngModel)]="student.dateOfAdmission"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_religion">Religion</label>
+            <select class="form-control" name="religion" [(ngModel)]="student.religion" id="field_religion" >
+                <option value="HINDU">HINDU</option>
+                <option value="MUSLIM">MUSLIM</option>
+                <option value="SIKH">SIKH</option>
+                <option value="CHRISTIAN">CHRISTIAN</option>
+                <option value="BUDDHIST">BUDDHIST</option>
+                <option value="JAIN">JAIN</option>
+                <option value="OTHERS">OTHERS</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_category">Category</label>
+            <select class="form-control" name="category" [(ngModel)]="student.category" id="field_category" >
+                <option value="GENERAL">GENERAL</option>
+                <option value="SC">SC</option>
+                <option value="ST">ST</option>
+                <option value="OBC">OBC</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_previousClass">Previous Class</label>
+            <select class="form-control" name="previousClass" [(ngModel)]="student.previousClass" id="field_previousClass" >
+                <option value="PRE_PRIMARY">PRE_PRIMARY</option>
+                <option value="FIRST">FIRST</option>
+                <option value="SECOND">SECOND</option>
+                <option value="THIRD">THIRD</option>
+                <option value="FOUTH">FOUTH</option>
+                <option value="FIFTH">FIFTH</option>
+                <option value="SIXTH">SIXTH</option>
+                <option value="SEVENTH">SEVENTH</option>
+                <option value="EIGHTH">EIGHTH</option>
+                <option value="NINETH">NINETH</option>
+                <option value="TENTH">TENTH</option>
+                <option value="ELEVENTH">ELEVENTH</option>
+                <option value="TWELVETH">TWELVETH</option>
+                <option value="OTHERS">OTHERS</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_previousYear">Previous Year</label>
+            <select class="form-control" name="previousYear" [(ngModel)]="student.previousYear" id="field_previousYear" >
+                <option value="SAME_SCHOOL">SAME_SCHOOL</option>
+                <option value="ANOTHER_SCHOOL">ANOTHER_SCHOOL</option>
+                <option value="AANGANWADI_ECCE">AANGANWADI_ECCE</option>
+                <option value="NONE">NONE</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_disability">Disability</label>
+            <select class="form-control" name="disability" [(ngModel)]="student.disability" id="field_disability" >
+                <option value="BLINDNESS">BLINDNESS</option>
+                <option value="VISUAL_LOW_VISION">VISUAL_LOW_VISION</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_bpl">Bpl</label>
+            <select class="form-control" name="bpl" [(ngModel)]="student.bpl" id="field_bpl" >
+                <option value="YES">YES</option>
+                <option value="NO">NO</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_disadvantage">Disadvantage</label>
+            <select class="form-control" name="disadvantage" [(ngModel)]="student.disadvantage" id="field_disadvantage" >
+                <option value="NA">NA</option>
+                <option value="YES">YES</option>
+                <option value="NO">NO</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_transport">Transport</label>
+            <select class="form-control" name="transport" [(ngModel)]="student.transport" id="field_transport" >
+                <option value="NA">NA</option>
+                <option value="YES">YES</option>
+                <option value="NO">NO</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_escort">Escort</label>
+            <select class="form-control" name="escort" [(ngModel)]="student.escort" id="field_escort" >
+                <option value="NA">NA</option>
+                <option value="YES">YES</option>
+                <option value="NO">NO</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_hostel">Hostel</label>
+            <select class="form-control" name="hostel" [(ngModel)]="student.hostel" id="field_hostel" >
+                <option value="NA">NA</option>
+                <option value="YES">YES</option>
+                <option value="NO">NO</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_training">Training</label>
+            <select class="form-control" name="training" [(ngModel)]="student.training" id="field_training" >
+                <option value="NA">NA</option>
+                <option value="YES">YES</option>
+                <option value="NO">NO</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_book">Book</label>
+            <select class="form-control" name="book" [(ngModel)]="student.book" id="field_book" >
+                <option value="NA">NA</option>
+                <option value="YES">YES</option>
+                <option value="NO">NO</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_uniformsets">Uniformsets</label>
+            <select class="form-control" name="uniformsets" [(ngModel)]="student.uniformsets" id="field_uniformsets" >
+                <option value="NA">NA</option>
+                <option value="YES">YES</option>
+                <option value="NO">NO</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_homeless">Homeless</label>
+            <select class="form-control" name="homeless" [(ngModel)]="student.homeless" id="field_homeless" >
+                <option value="NA">NA</option>
+                <option value="YES">YES</option>
+                <option value="NO">NO</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_freeEducation">Free Education</label>
+            <select class="form-control" name="freeEducation" [(ngModel)]="student.freeEducation" id="field_freeEducation" >
+                <option value="NA">NA</option>
+                <option value="YES">YES</option>
+                <option value="NO">NO</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_cwsn">Cwsn</label>
+            <select class="form-control" name="cwsn" [(ngModel)]="student.cwsn" id="field_cwsn" >
+                <option value="NA">NA</option>
+                <option value="YES">YES</option>
+                <option value="NO">NO</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_disease">Disease</label>
+            <input type="text" class="form-control" name="disease" id="field_disease"
+                [(ngModel)]="student.disease" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_precautions">Precautions</label>
+            <input type="text" class="form-control" name="precautions" id="field_precautions"
+                [(ngModel)]="student.precautions" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_active">Active</label>
+            <div class="d-flex">
+                <input id="field_active" type="datetime-local" class="form-control" name="active" [(ngModel)]="student.active"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_isDeleted">Is Deleted</label>
+            <input type="checkbox" class="form-control" name="isDeleted" id="field_isDeleted"
+                [(ngModel)]="student.isDeleted" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" for="field_userId">User Id</label>
+            <select class="form-control" id="field_userId" name="userId" [(ngModel)]="student.userId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="userOption.id === student.userId?.id ? student.userId : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_schoolClass">School Class</label>
+            <select class="form-control" id="field_schoolClass" name="schoolClass" [(ngModel)]="student.schoolClass" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="schoolClassOption.id === student.schoolClass?.id ? student.schoolClass : schoolClassOption" *ngFor="let schoolClassOption of schoolclasses; trackBy: trackSchoolClassById">{{schoolClassOption.name}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_section">Section</label>
+            <select class="form-control" id="field_section" name="section" [(ngModel)]="student.section" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="sectionOption.id === student.section?.id ? student.section : sectionOption" *ngFor="let sectionOption of sections; trackBy: trackSectionById">{{sectionOption.name}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_session">Session</label>
+            <select class="form-control" id="field_session" name="session" [(ngModel)]="student.session" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="sessionOption.id === student.session?.id ? student.session : sessionOption" *ngFor="let sessionOption of sessions; trackBy: trackSessionById">{{sessionOption.name}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

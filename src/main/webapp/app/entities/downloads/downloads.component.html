@@ -1,0 +1,74 @@
+<div>
+    <h2>
+        <span>Downloads</span>
+        <button class="btn btn-primary float-right jh-create-entity create-downloads" [routerLink]="['/', { outlets: { popup: ['downloads-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span >
+            Create new Downloads
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="downloads">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Exam</span></th>
+            <th><span>Image</span></th>
+            <th><span>Date</span></th>
+            <th><span>School Class</span></th>
+            <th><span>Section</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let downloads of downloads ;trackBy: trackId">
+                <td><a [routerLink]="['../downloads', downloads.id ]">{{downloads.id}}</a></td>
+                <td>{{downloads.exam}}</td>
+                <td>{{downloads.image}}</td>
+                <td>{{downloads.date | date:'medium'}}</td>
+                <td>
+                    <div *ngIf="downloads.schoolClass">
+                        <a [routerLink]="['../school-class', downloads.schoolClass?.id ]" >{{downloads.schoolClass?.name}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="downloads.section">
+                        <a [routerLink]="['../section', downloads.section?.id ]" >{{downloads.section?.name}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../downloads', downloads.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'downloads/'+ downloads.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'downloads/'+ downloads.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

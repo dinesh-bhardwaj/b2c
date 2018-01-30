@@ -1,0 +1,200 @@
+
+<div *ngIf="student">
+    <h2><span>Student</span> {{student.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Name</span></dt>
+        <dd>
+            <span>{{student.name}}</span>
+        </dd>
+        <dt><span>Father Name</span></dt>
+        <dd>
+            <span>{{student.fatherName}}</span>
+        </dd>
+        <dt><span>Mother Name</span></dt>
+        <dd>
+            <span>{{student.motherName}}</span>
+        </dd>
+        <dt><span>Dob</span></dt>
+        <dd>
+            <span>{{student.dob | date:'medium'}}</span>
+        </dd>
+        <dt><span>School Name</span></dt>
+        <dd>
+            <span>{{student.schoolName}}</span>
+        </dd>
+        <dt><span>Admission Number</span></dt>
+        <dd>
+            <span>{{student.admissionNumber}}</span>
+        </dd>
+        <dt><span>Roll No</span></dt>
+        <dd>
+            <span>{{student.rollNo}}</span>
+        </dd>
+        <dt><span>Email</span></dt>
+        <dd>
+            <span>{{student.email}}</span>
+        </dd>
+        <dt><span>Address</span></dt>
+        <dd>
+            <span>{{student.address}}</span>
+        </dd>
+        <dt><span>Mobile</span></dt>
+        <dd>
+            <span>{{student.mobile}}</span>
+        </dd>
+        <dt><span>Phone</span></dt>
+        <dd>
+            <span>{{student.phone}}</span>
+        </dd>
+        <dt><span>Username</span></dt>
+        <dd>
+            <span>{{student.username}}</span>
+        </dd>
+        <dt><span>Password</span></dt>
+        <dd>
+            <span>{{student.password}}</span>
+        </dd>
+        <dt><span>Profile</span></dt>
+        <dd>
+            <span>{{student.profile}}</span>
+        </dd>
+        <dt><span>Image</span></dt>
+        <dd>
+            <span>{{student.image}}</span>
+        </dd>
+        <dt><span>Gender</span></dt>
+        <dd>
+            <span>{{student.gender}}</span>
+        </dd>
+        <dt><span>Locality</span></dt>
+        <dd>
+            <span>{{student.locality}}</span>
+        </dd>
+        <dt><span>Aadhar</span></dt>
+        <dd>
+            <span>{{student.aadhar}}</span>
+        </dd>
+        <dt><span>Date Of Admission</span></dt>
+        <dd>
+            <span>{{student.dateOfAdmission | date:'medium'}}</span>
+        </dd>
+        <dt><span>Religion</span></dt>
+        <dd>
+            <span>{{student.religion}}</span>
+        </dd>
+        <dt><span>Category</span></dt>
+        <dd>
+            <span>{{student.category}}</span>
+        </dd>
+        <dt><span>Previous Class</span></dt>
+        <dd>
+            <span>{{student.previousClass}}</span>
+        </dd>
+        <dt><span>Previous Year</span></dt>
+        <dd>
+            <span>{{student.previousYear}}</span>
+        </dd>
+        <dt><span>Disability</span></dt>
+        <dd>
+            <span>{{student.disability}}</span>
+        </dd>
+        <dt><span>Bpl</span></dt>
+        <dd>
+            <span>{{student.bpl}}</span>
+        </dd>
+        <dt><span>Disadvantage</span></dt>
+        <dd>
+            <span>{{student.disadvantage}}</span>
+        </dd>
+        <dt><span>Transport</span></dt>
+        <dd>
+            <span>{{student.transport}}</span>
+        </dd>
+        <dt><span>Escort</span></dt>
+        <dd>
+            <span>{{student.escort}}</span>
+        </dd>
+        <dt><span>Hostel</span></dt>
+        <dd>
+            <span>{{student.hostel}}</span>
+        </dd>
+        <dt><span>Training</span></dt>
+        <dd>
+            <span>{{student.training}}</span>
+        </dd>
+        <dt><span>Book</span></dt>
+        <dd>
+            <span>{{student.book}}</span>
+        </dd>
+        <dt><span>Uniformsets</span></dt>
+        <dd>
+            <span>{{student.uniformsets}}</span>
+        </dd>
+        <dt><span>Homeless</span></dt>
+        <dd>
+            <span>{{student.homeless}}</span>
+        </dd>
+        <dt><span>Free Education</span></dt>
+        <dd>
+            <span>{{student.freeEducation}}</span>
+        </dd>
+        <dt><span>Cwsn</span></dt>
+        <dd>
+            <span>{{student.cwsn}}</span>
+        </dd>
+        <dt><span>Disease</span></dt>
+        <dd>
+            <span>{{student.disease}}</span>
+        </dd>
+        <dt><span>Precautions</span></dt>
+        <dd>
+            <span>{{student.precautions}}</span>
+        </dd>
+        <dt><span>Active</span></dt>
+        <dd>
+            <span>{{student.active | date:'medium'}}</span>
+        </dd>
+        <dt><span>Is Deleted</span></dt>
+        <dd>
+            <span>{{student.isDeleted}}</span>
+        </dd>
+        <dt><span>User Id</span></dt>
+        <dd>
+            {{student.userId?.id}}
+        </dd>
+        <dt><span>School Class</span></dt>
+        <dd>
+            <div *ngIf="student.schoolClass">
+                <a [routerLink]="['/school-class', student.schoolClass?.id]">{{student.schoolClass?.name}}</a>
+            </div>
+        </dd>
+        <dt><span>Section</span></dt>
+        <dd>
+            <div *ngIf="student.section">
+                <a [routerLink]="['/section', student.section?.id]">{{student.section?.name}}</a>
+            </div>
+        </dd>
+        <dt><span>Session</span></dt>
+        <dd>
+            <div *ngIf="student.session">
+                <a [routerLink]="['/session', student.session?.id]">{{student.session?.name}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'student/'+ student.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

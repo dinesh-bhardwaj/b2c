@@ -1,0 +1,40 @@
+
+<div *ngIf="attendance">
+    <h2><span>Attendance</span> {{attendance.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Month</span></dt>
+        <dd>
+            <span>{{attendance.month}}</span>
+        </dd>
+        <dt><span>Date</span></dt>
+        <dd>
+            <span>{{attendance.date | date:'medium'}}</span>
+        </dd>
+        <dt><span>Attendance</span></dt>
+        <dd>
+            <span>{{attendance.attendance}}</span>
+        </dd>
+        <dt><span>Student</span></dt>
+        <dd>
+            <div *ngIf="attendance.student">
+                <a [routerLink]="['/student', attendance.student?.id]">{{attendance.student?.name}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'attendance/'+ attendance.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

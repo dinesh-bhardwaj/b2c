@@ -1,0 +1,33 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "student",
+            "otherEntityName": "student",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "month",
+            "fieldType": "MonthFields",
+            "fieldValues": "JAN,FEB,MAR,APR,MAY,JUN,JUL,AUG,SEP,OCT,NOV,DEC"
+        },
+        {
+            "fieldName": "date",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "attendance",
+            "fieldType": "AttendanceField",
+            "fieldValues": "PRESENT,ABSENT,LEAVE,LATE_FOR_SCHOOL,HOLIDAY,SUNDAY_HOLIDAY,WEEKLY_HOLIDAY,WEEKLY_OFF"
+        }
+    ],
+    "changelogDate": "20180130131512",
+    "entityTableName": "attendance",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

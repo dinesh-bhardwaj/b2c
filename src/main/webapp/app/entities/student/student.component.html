@@ -1,0 +1,156 @@
+<div>
+    <h2>
+        <span>Students</span>
+        <button class="btn btn-primary float-right jh-create-entity create-student" [routerLink]="['/', { outlets: { popup: ['student-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span >
+            Create new Student
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="students">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Name</span></th>
+            <th><span>Father Name</span></th>
+            <th><span>Mother Name</span></th>
+            <th><span>Dob</span></th>
+            <th><span>School Name</span></th>
+            <th><span>Admission Number</span></th>
+            <th><span>Roll No</span></th>
+            <th><span>Email</span></th>
+            <th><span>Address</span></th>
+            <th><span>Mobile</span></th>
+            <th><span>Phone</span></th>
+            <th><span>Username</span></th>
+            <th><span>Password</span></th>
+            <th><span>Profile</span></th>
+            <th><span>Image</span></th>
+            <th><span>Gender</span></th>
+            <th><span>Locality</span></th>
+            <th><span>Aadhar</span></th>
+            <th><span>Date Of Admission</span></th>
+            <th><span>Religion</span></th>
+            <th><span>Category</span></th>
+            <th><span>Previous Class</span></th>
+            <th><span>Previous Year</span></th>
+            <th><span>Disability</span></th>
+            <th><span>Bpl</span></th>
+            <th><span>Disadvantage</span></th>
+            <th><span>Transport</span></th>
+            <th><span>Escort</span></th>
+            <th><span>Hostel</span></th>
+            <th><span>Training</span></th>
+            <th><span>Book</span></th>
+            <th><span>Uniformsets</span></th>
+            <th><span>Homeless</span></th>
+            <th><span>Free Education</span></th>
+            <th><span>Cwsn</span></th>
+            <th><span>Disease</span></th>
+            <th><span>Precautions</span></th>
+            <th><span>Active</span></th>
+            <th><span>Is Deleted</span></th>
+            <th><span>User Id</span></th>
+            <th><span>School Class</span></th>
+            <th><span>Section</span></th>
+            <th><span>Session</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let student of students ;trackBy: trackId">
+                <td><a [routerLink]="['../student', student.id ]">{{student.id}}</a></td>
+                <td>{{student.name}}</td>
+                <td>{{student.fatherName}}</td>
+                <td>{{student.motherName}}</td>
+                <td>{{student.dob | date:'medium'}}</td>
+                <td>{{student.schoolName}}</td>
+                <td>{{student.admissionNumber}}</td>
+                <td>{{student.rollNo}}</td>
+                <td>{{student.email}}</td>
+                <td>{{student.address}}</td>
+                <td>{{student.mobile}}</td>
+                <td>{{student.phone}}</td>
+                <td>{{student.username}}</td>
+                <td>{{student.password}}</td>
+                <td>{{student.profile}}</td>
+                <td>{{student.image}}</td>
+                <td>{{student.gender}}</td>
+                <td>{{student.locality}}</td>
+                <td>{{student.aadhar}}</td>
+                <td>{{student.dateOfAdmission | date:'medium'}}</td>
+                <td>{{student.religion}}</td>
+                <td>{{student.category}}</td>
+                <td>{{student.previousClass}}</td>
+                <td>{{student.previousYear}}</td>
+                <td>{{student.disability}}</td>
+                <td>{{student.bpl}}</td>
+                <td>{{student.disadvantage}}</td>
+                <td>{{student.transport}}</td>
+                <td>{{student.escort}}</td>
+                <td>{{student.hostel}}</td>
+                <td>{{student.training}}</td>
+                <td>{{student.book}}</td>
+                <td>{{student.uniformsets}}</td>
+                <td>{{student.homeless}}</td>
+                <td>{{student.freeEducation}}</td>
+                <td>{{student.cwsn}}</td>
+                <td>{{student.disease}}</td>
+                <td>{{student.precautions}}</td>
+                <td>{{student.active | date:'medium'}}</td>
+                <td>{{student.isDeleted}}</td>
+                <td>
+                    {{student.userId?.id}}
+                </td>
+                <td>
+                    <div *ngIf="student.schoolClass">
+                        <a [routerLink]="['../school-class', student.schoolClass?.id ]" >{{student.schoolClass?.name}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="student.section">
+                        <a [routerLink]="['../section', student.section?.id ]" >{{student.section?.name}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="student.session">
+                        <a [routerLink]="['../session', student.session?.id ]" >{{student.session?.name}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../student', student.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'student/'+ student.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'student/'+ student.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
