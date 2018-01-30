@@ -1,0 +1,46 @@
+
+<div *ngIf="downloads">
+    <h2><span>Downloads</span> {{downloads.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Exam</span></dt>
+        <dd>
+            <span>{{downloads.exam}}</span>
+        </dd>
+        <dt><span>Image</span></dt>
+        <dd>
+            <span>{{downloads.image}}</span>
+        </dd>
+        <dt><span>Date</span></dt>
+        <dd>
+            <span>{{downloads.date | date:'medium'}}</span>
+        </dd>
+        <dt><span>School Class</span></dt>
+        <dd>
+            <div *ngIf="downloads.schoolClass">
+                <a [routerLink]="['/school-class', downloads.schoolClass?.id]">{{downloads.schoolClass?.name}}</a>
+            </div>
+        </dd>
+        <dt><span>Section</span></dt>
+        <dd>
+            <div *ngIf="downloads.section">
+                <a [routerLink]="['/section', downloads.section?.id]">{{downloads.section?.name}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'downloads/'+ downloads.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

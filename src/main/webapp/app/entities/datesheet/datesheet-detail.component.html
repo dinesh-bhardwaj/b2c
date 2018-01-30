@@ -1,0 +1,46 @@
+
+<div *ngIf="datesheet">
+    <h2><span>Datesheet</span> {{datesheet.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Exam</span></dt>
+        <dd>
+            <span>{{datesheet.exam}}</span>
+        </dd>
+        <dt><span>Image</span></dt>
+        <dd>
+            <span>{{datesheet.image}}</span>
+        </dd>
+        <dt><span>Date</span></dt>
+        <dd>
+            <span>{{datesheet.date | date:'medium'}}</span>
+        </dd>
+        <dt><span>School Class</span></dt>
+        <dd>
+            <div *ngIf="datesheet.schoolClass">
+                <a [routerLink]="['/school-class', datesheet.schoolClass?.id]">{{datesheet.schoolClass?.name}}</a>
+            </div>
+        </dd>
+        <dt><span>Section</span></dt>
+        <dd>
+            <div *ngIf="datesheet.section">
+                <a [routerLink]="['/section', datesheet.section?.id]">{{datesheet.section?.name}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'datesheet/'+ datesheet.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

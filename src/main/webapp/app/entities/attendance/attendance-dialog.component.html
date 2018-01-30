@@ -1,0 +1,69 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myAttendanceLabel">Create or edit a Attendance</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!attendance.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="attendance.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_month">Month</label>
+            <select class="form-control" name="month" [(ngModel)]="attendance.month" id="field_month" >
+                <option value="JAN">JAN</option>
+                <option value="FEB">FEB</option>
+                <option value="MAR">MAR</option>
+                <option value="APR">APR</option>
+                <option value="MAY">MAY</option>
+                <option value="JUN">JUN</option>
+                <option value="JUL">JUL</option>
+                <option value="AUG">AUG</option>
+                <option value="SEP">SEP</option>
+                <option value="OCT">OCT</option>
+                <option value="NOV">NOV</option>
+                <option value="DEC">DEC</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_date">Date</label>
+            <div class="d-flex">
+                <input id="field_date" type="datetime-local" class="form-control" name="date" [(ngModel)]="attendance.date"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_attendance">Attendance</label>
+            <select class="form-control" name="attendance" [(ngModel)]="attendance.attendance" id="field_attendance" >
+                <option value="PRESENT">PRESENT</option>
+                <option value="ABSENT">ABSENT</option>
+                <option value="LEAVE">LEAVE</option>
+                <option value="LATE_FOR_SCHOOL">LATE_FOR_SCHOOL</option>
+                <option value="HOLIDAY">HOLIDAY</option>
+                <option value="SUNDAY_HOLIDAY">SUNDAY_HOLIDAY</option>
+                <option value="WEEKLY_HOLIDAY">WEEKLY_HOLIDAY</option>
+                <option value="WEEKLY_OFF">WEEKLY_OFF</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" for="field_student">Student</label>
+            <select class="form-control" id="field_student" name="student" [(ngModel)]="attendance.student" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="studentOption.id === attendance.student?.id ? attendance.student : studentOption" *ngFor="let studentOption of students; trackBy: trackStudentById">{{studentOption.name}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>
